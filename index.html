@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+   
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap");
+
+      nav,
+      .random-quizzes,
+      .categories-header {
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+
+      nav.animate,
+      .random-quizzes.animate,
+      .categories-header.animate {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .category {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+
+      .category.animate {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .category:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+        color: #ffd700;
+      }
+    </style>
+  </head>
+  <body class="dark:bg-[#1F2937] bg-white font-cormorant scrollbar">
+    <nav
+      class="dark:bg-[#1A202C] bg-white dark:text-white text-black  text-center py-4"
+    >
+      <h1 class="text-3xl font-bold">
+        QUIZ APP <small class="text-xs text-red-400">VAMSI</small>
+      </h1>
+    </nav>
+
+    <section id="start-quiz-section">
+      <div
+        class=" pt-4 random-quizzes rounded-md dark:bg-gray-800 bg-white p-6 dark:shadow-md"
+      >
+        <div class="mt-6 mb-3 flex items-center justify-center">
+          <button
+            class="bg-yellow-400 hover:bg-yellow-500 text-gray-800 text-xl font-bold tracking-wider py-2 px-4 rounded-full shadow-md transition duration-300"
+            val=""
+            id="random-quiz-btn"
+          >
+            Start Random Quiz
+          </button>
+        </div>
+        <div id="last-score-div my-2"></div>
+        <div class="w-full flex justify-center">
+          <button
+            id="theme-toggle"
+            class="w-max dark:bg-black dark:text-white font-semibold bg-gray-200  text-black px-4 py-2 text-xl rounded-3xl cursor-pointer"
+          >
+            Switch to Light Mode
+          </button>
+        </div>
+      </div>
+
+      <main class="max-w-4xl mx-auto px-4 py-8 font-cormorant">
+        <div
+          class="border-t-2 categories-header rounded-md dark:bg-gray-800 bg-gray-300 p-6 mb-4 shadow-md"
+        >
+          <h2
+            class="text-2xl font-bold text-center tracking-wider dark:text-white text-black"
+          >
+            All Categories
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div
+            class="category dark:dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="9"
+          >
+            <p class="font-semibold" val="9">General Knowledge</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="10"
+          >
+            <p class="font-semibold" val="10">Books</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="11"
+          >
+            <p class="font-semibold" val="11">Film</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="12"
+          >
+            <p class="font-semibold" val="12">Music</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="13"
+          >
+            <p class="font-semibold" val="13">Musicals & Theatres</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="14"
+          >
+            <p class="font-semibold" val="14">Television</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="15"
+          >
+            <p class="font-semibold" val="15">Video Games</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="16"
+          >
+            <p class="font-semibold" val="16">Board Games</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="17"
+          >
+            <p class="font-semibold" val="17">Science & Nature</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="18"
+          >
+            <p class="font-semibold" val="18">Science: Computers</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="19"
+          >
+            <p class="font-semibold" val="19">Science: Mathematics</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="20"
+          >
+            <p class="font-semibold" val="20">Mythology</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="21"
+          >
+            <p class="font-semibold" val="21">Sports</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="22"
+          >
+            <p class="font-semibold" val="22">Geography</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="23"
+          >
+            <p class="font-semibold" val="23">History</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="24"
+          >
+            <p class="font-semibold" val="24">Politics</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="25"
+          >
+            <p class="font-semibold" val="25">Art</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="26"
+          >
+            <p class="font-semibold" val="26">Celebrities</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="27"
+          >
+            <p class="font-semibold" val="27">Animals</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="28"
+          >
+            <p class="font-semibold" val="28">Vehicles</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="29"
+          >
+            <p class="font-semibold" val="29">Comics</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="30"
+          >
+            <p class="font-semibold" val="30">Science: Gadgets</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="31"
+          >
+            <p class="font-semibold" val="31">Anime & Manga</p>
+          </div>
+          <div
+            class="category dark:bg-[#4A5568] bg-gray-300 dark:text-white text-black text-xl p-4 text-center rounded-md cursor-pointer hover:bg-[#2D3748] transition duration-300"
+            val="32"
+          >
+            <p class="font-semibold" val="32">Cartoon & Animations</p>
+          </div>
+        </div>
+      </main>
+    </section>
+
+    <section class="dark:text-white text-black" id="quiz-page">
+      <div class="quiz">
+        <div
+          class="flex justify-around items-center py-3"
+          id="curr-question-count-div"
+        ></div>
+        <div
+          class="border-t-2 rounded-md dark:bg-gray-700 bg-white p-6 shadow-lg"
+          id="quiz-page-question"
+        ></div>
+        <div id="question-div" class="py-6">
+          <div id="options" class="grid grid-cols-1 gap-4"></div>
+        </div>
+        <div class="flex justify-center items-center">
+          <button
+            id="next-btn"
+            class="bg-blue-600 hover:bg-blue-500 text-white text-xl font-semibold py-2 px-4 mb-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-300"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </section>
+    <section class="res-page"></section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Animate navigation
+        const nav = document.querySelector("nav");
+        nav.classList.add("animate");
+        // Animate Random Quizzes section
+        const randomQuizzes = document.querySelector(".random-quizzes");
+        randomQuizzes.classList.add("animate");
+        // Animate Categories header
+        const categoriesHeader = document.querySelector(".categories-header");
+        categoriesHeader.classList.add("animate");
+        // Animate categories
+        const categories = document.querySelectorAll(".category");
+        categories.forEach((category, index) => {
+          setTimeout(() => {
+            category.classList.add("animate");
+          }, index * 100);
+        });
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
