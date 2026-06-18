@@ -1,97 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QuizMaster Pro</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Master 2026</title>
 
-    <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <div class="container">
+  <!-- HEADER -->
 
-        <!-- Home Screen -->
-        <section id="home-screen">
+  <header>
+    <h1 class="logo">
+      Quiz<span>Master</span> 2026
+    </h1>
+  </header>
 
-            <header class="hero">
-                <h1>🏆 QuizMaster Pro</h1>
-                <p>Challenge your knowledge and track your progress.</p>
-            </header>
+  <div class="container">
 
-            <div class="stats-card">
-                <h3>Your Stats</h3>
-                <p>Best Score: <span id="best-score">0</span></p>
-                <p>Last Score: <span id="last-score">0</span></p>
-            </div>
+    <!-- START SCREEN -->
 
-            <div class="difficulty">
-                <h3>Select Difficulty</h3>
+    <section id="startScreen" class="start-screen">
 
-                <select id="difficulty">
-                    <option value="easy">Easy</option>
-                    <option value="medium">Medium</option>
-                    <option value="hard">Hard</option>
-                </select>
-            </div>
+      <div class="hero">
+        <h1>Challenge Your Knowledge</h1>
+        <p>
+          Test yourself across multiple categories and track your performance.
+        </p>
+      </div>
 
-            <button id="start-btn" class="btn">
-                Start Quiz
-            </button>
+      <!-- STATS -->
 
-        </section>
+      <div class="dashboard">
 
-        <!-- Quiz Screen -->
-        <section id="quiz-screen" class="hidden">
+        <div class="card">
+          <h3>High Score</h3>
+          <p id="highScore">0</p>
+        </div>
 
-            <div class="top-bar">
-                <span id="question-count">1/15</span>
-                <span id="timer">20s</span>
-            </div>
+        <div class="card">
+          <h3>Questions</h3>
+          <p>10</p>
+        </div>
 
-            <div class="progress">
-                <div id="progress-fill"></div>
-            </div>
+        <div class="card">
+          <h3>Time Per Question</h3>
+          <p>15s</p>
+        </div>
 
-            <div class="score-box">
-                Score: <span id="score">0</span>
-            </div>
+      </div>
 
-            <div class="question-card">
-                <h2 id="question-text"></h2>
-            </div>
+      <!-- START BUTTON -->
 
-            <div id="options" class="options"></div>
+      <button id="startBtn" class="start-btn">
+        Start Quiz
+      </button>
 
-            <button id="next-btn" class="btn">
-                Next Question
-            </button>
+      <!-- CATEGORIES -->
 
-        </section>
+      <div class="categories">
 
-        <!-- Result Screen -->
-        <section id="result-screen" class="hidden">
+        <h2>Select Category</h2>
 
-            <h1>🎉 Quiz Completed</h1>
+        <div class="category-grid">
 
-            <div class="result-card">
+          <div class="category-card active" data-category="18">
+            <h3>💻 Computers</h3>
+          </div>
 
-                <h2 id="final-score"></h2>
+          <div class="category-card" data-category="9">
+            <h3>🧠 General Knowledge</h3>
+          </div>
 
-                <p id="accuracy"></p>
+          <div class="category-card" data-category="21">
+            <h3>⚽ Sports</h3>
+          </div>
 
-                <p id="rank"></p>
+          <div class="category-card" data-category="23">
+            <h3>📜 History</h3>
+          </div>
 
-                <button id="restart-btn" class="btn">
-                    Play Again
-                </button>
+          <div class="category-card" data-category="22">
+            <h3>🌍 Geography</h3>
+          </div>
 
-            </div>
+          <div class="category-card" data-category="17">
+            <h3>🔬 Science</h3>
+          </div>
 
-        </section>
+        </div>
 
-    </div>
+      </div>
 
-    <script src="script.js"></script>
+    </section>
+
+    <!-- QUIZ SCREEN -->
+
+    <section id="quizContainer" class="quiz-container">
+
+      <!-- PROGRESS BAR -->
+
+      <div class="progress">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+
+      <!-- TOP INFO -->
+
+      <div class="quiz-top">
+
+        <div class="badge">
+          Question:
+          <span id="currentQuestion">1</span> /
+          <span id="totalQuestions">10</span>
+        </div>
+
+        <div class="badge">
+          Score:
+          <span id="score">0</span>
+        </div>
+
+        <div class="badge">
+          ⏳
+          <span id="timer">15</span>s
+        </div>
+
+      </div>
+
+      <!-- QUESTION -->
+
+      <div class="question-box">
+        <h2 id="question">
+          Question appears here...
+        </h2>
+      </div>
+
+      <!-- OPTIONS -->
+
+      <div id="options" class="options"></div>
+
+      <!-- NEXT BUTTON -->
+
+      <button id="nextBtn" class="next-btn">
+        Next Question
+      </button>
+
+    </section>
+
+    <!-- RESULT SCREEN -->
+
+    <section id="resultScreen" class="result-screen">
+
+      <div class="result-card">
+
+        <h2>Quiz Completed 🎉</h2>
+
+        <div id="finalScore" class="result-score">
+          0/10
+        </div>
+
+        <p id="resultMessage" class="result-text">
+          Great effort!
+        </p>
+
+        <button id="restartBtn" class="play-again">
+          Play Again
+        </button>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+
 </body>
 </html>
