@@ -353,3 +353,15 @@ header{
       font-size:3.5rem;
   }
 }
+.category-card.active{
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.option:disabled{
+  cursor: not-allowed;
+}
+
+.next-btn{
+  display:none;
+}
